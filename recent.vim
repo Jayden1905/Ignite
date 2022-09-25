@@ -14,11 +14,14 @@ else
   set shortmess=aoO
 endif
 badd +5 src/App.jsx
+badd +1 src/
+badd +1 src/api.js
 argglobal
 %argdel
 $argadd src/
-edit src/App.jsx
+edit src/api.js
 argglobal
+balt src/App.jsx
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -29,12 +32,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 5 - ((4 * winheight(0) + 11) / 22)
+let s:l = 32 - ((19 * winheight(0) + 11) / 22)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 5
-normal! 04|
+keepjumps 32
+normal! 0
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
