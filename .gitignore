@@ -6,12 +6,12 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
-recent.vim
 
 node_modules
 dist
 dist-ssr
 *.local
+*.vim
 
 # Editor directories and files
 .vscode/*
