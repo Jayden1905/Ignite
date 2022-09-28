@@ -33,17 +33,27 @@ const nextYear = `${currentYear + 1}-${currentMonth}-${currentDay}`;
 
 const newGames = `games?key=${
   import.meta.env.VITE_RAWG_API_KEY
-}&dates=${lastYrear},${currentDate}&ordering=-released&page_size=10`;
+}&dates=${lastYrear},${currentDate}&ordering=-released`;
 
 // Popular Games
 const popular_games = `games?key=${
   import.meta.env.VITE_RAWG_API_KEY
-}&dates=${lastYrear},${currentDate}&ordering=-rating&page_size=10`;
+}&dates=${lastYrear},${currentDate}&ordering=-rating`;
 
 const upcoming_games = `games?key=${
   import.meta.env.VITE_RAWG_API_KEY
-}&dates=${currentDate},${nextYear}&ordering=-added&page_size=10`;
+}&dates=${currentDate},${nextYear}&ordering=-added`;
 
 export const popularGamesUrl = () => `${base_url}${popular_games}`;
 export const upcommingGamesUrl = () => `${base_url}${upcoming_games}`;
 export const newGamesUrl = () => `${base_url}${newGames}`;
+
+// Game Details
+export const gameDetailsUrl = (game_id) =>
+  `${base_url}games/${game_id}?key=${import.meta.env.VITE_RAWG_API_KEY}`;
+
+// Game ScreentShots
+export const gameScreenShotsUrl = (game_id) =>
+  `${base_url}games/${game_id}/screenshots?key=${
+    import.meta.env.VITE_RAWG_API_KEY
+  }`;
