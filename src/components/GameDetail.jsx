@@ -151,7 +151,7 @@ const CardShadow = styled(motion.div)`
 const Detail = styled(motion.div)`
   width: 80%;
   border-radius: 1rem;
-  padding: 2rem 5rem;
+  padding: 2rem 5%;
   background: white;
   position: absolute;
   top: 0;
@@ -181,8 +181,9 @@ const Info = styled(motion.div)`
 const StyledPlatforms = styled(motion.div)`
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 3rem;
   img {
-    margin-left: 3rem;
   }
 `;
 

@@ -6,12 +6,15 @@ import Nav from "./components/Nav";
 import GlobalStyles from "./components/GlobalStyles";
 // Routes
 import { Route } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export default function App() {
+  const { isLoading } = useSelector((state) => state.games);
+
   return (
     <div className="App">
       <GlobalStyles />
-      <Nav />
+      {!isLoading && <Nav />}
       <Route path={["/game/:id", "/"]}>
         <Home />
       </Route>

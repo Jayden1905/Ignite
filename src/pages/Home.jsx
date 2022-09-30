@@ -9,6 +9,8 @@ import GameDetail from "../components/GameDetail";
 import styled from "styled-components";
 import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
 import { useLocation } from "react-router-dom";
+// Animation
+import { fadeIn } from "../../animation";
 
 export default function Home() {
   // get current locaiton
@@ -29,13 +31,13 @@ export default function Home() {
   return (
     <>
       {!isLoading && (
-        <GameList>
+        <GameList variants={fadeIn} initial="hidden" animate="show">
           <AnimateSharedLayout type="crossfade">
             <AnimatePresence>
               {pathId && <GameDetail pathId={pathId} />}
             </AnimatePresence>
 
-            {searched.length && (
+            {searched.length ? (
               <div className="searched">
                 <h2>Searched Games</h2>
                 <Games>
@@ -49,6 +51,8 @@ export default function Home() {
                   ))}
                 </Games>
               </div>
+            ) : (
+              ""
             )}
 
             <h2>Upcomming Games</h2>
@@ -97,6 +101,10 @@ const GameList = styled(motion.div)`
   h2 {
     padding: 5rem 0rem;
   }
+
+  @media (max-width: 780px) {
+    padding: 0rem 1rem;
+  }
 `;
 
 const Games = styled(motion.div)`
@@ -105,4 +113,8 @@ const Games = styled(motion.div)`
   grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
   grid-column-gap: 3rem;
   grid-row-gap: 5rem;
+
+  @media (max-width: 780px) {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  }
 `;
