@@ -70,7 +70,7 @@ const StyledNav = styled(motion.nav)`
 
   @media (max-width: 1300px) {
     input {
-      width: 60%;
+      width: 50%;
     }
   }
 `;
