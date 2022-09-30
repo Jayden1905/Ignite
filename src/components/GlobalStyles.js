@@ -51,7 +51,12 @@ const GlobalStyles = createGlobalStyle`
   }
 
   img {
-    display: block
+    display: block;
+  }
+
+  input {
+    font-weight: bold;
+    font-family: "Monserrat", sans-serif;
   }
 `;
 

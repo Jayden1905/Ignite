@@ -57,3 +57,9 @@ export const gameScreenShotsUrl = (game_id) =>
   `${base_url}games/${game_id}/screenshots?key=${
     import.meta.env.VITE_RAWG_API_KEY
   }`;
+
+// Search games
+export const searchGameUrl = (game_name) =>
+  `${base_url}games?key=${
+    import.meta.env.VITE_RAWG_API_KEY
+  }&search=${game_name}`;
